@@ -47,31 +47,30 @@ async function callApi(message, sendResponse) {
       "https://resumefit-ai-backend-qew8.onrender.com/send",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({
           jd: message.discription,
           base64: storedResume,
         }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
 
     const data = await apiData.json();
 
-    storedResult = data.response;
-
-    // Convert score to percentage
-    if (storedResult && storedResult.score !== undefined) {
-      storedResult.score =
-        storedResult.score <= 1
-          ? Math.round(storedResult.score * 100)
-          : Math.round(storedResult.score);
-    }
+    // Convert score and save converted value
+    storedResult = {
+      ...data.response,
+      score:
+        data.response.score <= 1
+          ? Math.round(data.response.score * 100)
+          : Math.round(data.response.score),
+    };
 
     sendResponse(`${storedResult.score}%`);
   } catch (err) {
-    console.error(err);
+    console.log(err);
     sendResponse("Server Error");
   }
 }
