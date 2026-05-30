@@ -9,6 +9,7 @@ An AI-powered Chrome Extension that analyzes your resume against any job descrip
 > Select any job description text on LinkedIn or Indeed → Click "Check Score" → Get your ATS score instantly.
 
 Backend API: [https://resumefit-ai-backend-production.up.railway.app](https://resumefit-ai-backend-production.up.railway.app)
+Backend GitRepoLink: [https://github.com/kireetikotturu/resumefit-ai-backend](https://github.com/kireetikotturu/resumefit-ai-backend)
 
 ---
 
