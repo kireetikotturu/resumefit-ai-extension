@@ -44,7 +44,7 @@ async function callApi(message, sendResponse) {
 
   try {
     const apiData = await fetch(
-      "https://resumefit-ai-backend-qew8.onrender.com/send",
+      "https://resumefit-ai-backend-production.up.railway.app/send",
       {
         method: "POST",
         body: JSON.stringify({
